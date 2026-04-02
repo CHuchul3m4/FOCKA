@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dcidi61utntx"]
+
+[ext_resource type="Shader" uid="uid://d02tnhha0y4wi" path="res://Stuff/Shaders/RainbowText.gdshader" id="1_eeonf"]
+
+[resource]
+shader = ExtResource("1_eeonf")
+shader_parameter/rainbow = true
+shader_parameter/line_color = Color(0.21568628, 0.3529412, 0.5019608, 1)
+shader_parameter/line_scale = 1.1130000528675
+shader_parameter/frequency = 0.2870000136325
+shader_parameter/light_offset = 1.0
+shader_parameter/alpha = 0.322000015295

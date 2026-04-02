@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://tu4jvqeptt7c"]
+
+[ext_resource type="Texture2D" uid="uid://gdatoxt5ip4m" path="res://SPRITES/cmsng.png" id="1_lxhbt"]
+[ext_resource type="Script" uid="uid://dmmam15mflldb" path="res://Escenas/Splash.gd" id="1_mgodh"]
+[ext_resource type="Shader" uid="uid://dc3rruverbrqa" path="res://Stuff/Shaders/ShaderBlur.gdshader" id="1_tjd1l"]
+[ext_resource type="PackedScene" uid="uid://d0i3kku4lijml" path="res://Escenas/LANDSCAPE.tscn" id="2_ecjk3"]
+[ext_resource type="Texture2D" uid="uid://b15up68qmkloj" path="res://SPRITES/Black.png" id="4_y31m8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgodh"]
+shader = ExtResource("1_tjd1l")
+shader_parameter/blur_type = 0
+shader_parameter/blur_amount = 4
+shader_parameter/blur_radius = 1.0
+shader_parameter/blur_direction = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_lxhbt"]
+resource_name = "Fade-In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/CAMOTE:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOut:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ecjk3"]
+resource_name = "Fade-Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/CAMOTE:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOut:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tjd1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/CAMOTE:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeOut:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgodh"]
+_data = {
+&"Fade-In": SubResource("Animation_lxhbt"),
+&"Fade-Out": SubResource("Animation_ecjk3"),
+&"RESET": SubResource("Animation_tjd1l")
+}
+
+[node name="SPLASHES" type="Node2D" unique_id=170764800]
+script = ExtResource("1_mgodh")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=280018898]
+
+[node name="Blur" type="ColorRect" parent="UI" unique_id=1317223074]
+material = SubResource("ShaderMaterial_mgodh")
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 1160.0
+offset_bottom = 664.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1887627978]
+
+[node name="CAMOTE" type="Sprite2D" parent="UI/HBoxContainer" unique_id=1239272504]
+position = Vector2(584, 304)
+texture = ExtResource("1_lxhbt")
+
+[node name="FadeOut" type="Sprite2D" parent="UI" unique_id=1711849950]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(580.25, 315.5)
+scale = Vector2(9.115385, 5.321918)
+texture = ExtResource("4_y31m8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1511031382]
+libraries/ = SubResource("AnimationLibrary_mgodh")
+autoplay = &"Fade-In"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=235958434]
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 1168.0
+offset_bottom = 2460.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=604516203]
+handle_input_locally = false
+size = Vector2i(1200, 2500)
+render_target_update_mode = 4
+
+[node name="LANDSCAPE" parent="SubViewportContainer/SubViewport" unique_id=1643473602 instance=ExtResource("2_ecjk3")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1707053226]
+wait_time = 5.0
+autostart = true
+
+[connection signal="animation_finished" from="UI/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="SubViewportContainer/SubViewport/LANDSCAPE"]

@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cb8wnn3764qkq"]
+
+[node name="Control" type="Control" unique_id=1347933309]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=481094603]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=787028014]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="Tittle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=547652370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "SETTINGS"
+
+[node name="Sound" type="Label" parent="CenterContainer/VBoxContainer" unique_id=529141385]
+layout_mode = 2
+text = "SOUND"
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/Sound" unique_id=1743173549]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 288.0
+offset_bottom = 43.0
+step = 5.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+tick_count = 20
+ticks_on_borders = true
+
+[node name="Sound2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1061739399]
+layout_mode = 2
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/VBoxContainer/Sound2" unique_id=1643682823]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 288.0
+offset_bottom = 43.0
+step = 5.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+tick_count = 20
+ticks_on_borders = true
+
+[node name="Sound4" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2013351407]
+layout_mode = 2
+text = "VHS"
+
+[node name="CheckBox" type="CheckButton" parent="CenterContainer/VBoxContainer/Sound4" unique_id=1731199544]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 24.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=717864436]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=80453292]
+layout_mode = 2
+text = "CHEAT MENU"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=839416287]
+layout_mode = 2
+fit_to_longest_item = false
+item_count = 10
+popup/item_0/text = "VISUAL & BEHAVIOR"
+popup/item_0/id = 9
+popup/item_0/separator = true
+popup/item_1/text = "MOONGRAVITY"
+popup/item_1/id = 0
+popup/item_2/text = "ICEBREAKER"
+popup/item_2/id = 1
+popup/item_3/text = "INVERSEGRAVITY"
+popup/item_3/id = 2
+popup/item_4/text = "SUPERJUMP"
+popup/item_4/id = 3
+popup/item_5/text = "RAINBOW"
+popup/item_5/id = 4
+popup/item_6/text = "DRUNK"
+popup/item_6/id = 5
+popup/item_7/text = "SIZE ( ON DEVELOPMENT ) "
+popup/item_7/id = 9
+popup/item_7/separator = true
+popup/item_8/text = "ANTSIZE"
+popup/item_8/id = 7
+popup/item_8/disabled = true
+popup/item_9/text = "GIGANTSIZE"
+popup/item_9/id = 8
+popup/item_9/disabled = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1617087523]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=927267853]
+layout_mode = 2
+text = "VSYNC"
+
+[node name="CheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1768976480]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=100926667]
+layout_mode = 2
+text = "EXIT
+"

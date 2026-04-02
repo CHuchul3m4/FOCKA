@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cadtuc6ucw6be"]
+
+[ext_resource type="Script" uid="uid://c6pmomcwq8etn" path="res://Scripts/MenuPrincipalController.gd" id="1_ud10i"]
+[ext_resource type="PackedScene" uid="uid://d0i3kku4lijml" path="res://Escenas/LANDSCAPE.tscn" id="1_vygie"]
+[ext_resource type="Shader" uid="uid://dc3rruverbrqa" path="res://Stuff/Shaders/ShaderBlur.gdshader" id="3_f8r5x"]
+[ext_resource type="Texture2D" uid="uid://dqbjel6af0k6m" path="res://SPRITES/gradient.png" id="3_w6vtn"]
+[ext_resource type="PackedScene" uid="uid://2ooj6rgxgt5" path="res://Escenas/FOCKAONPEAK.tscn" id="4_bu0hf"]
+[ext_resource type="Texture2D" uid="uid://bi4fmw0qv8a4i" path="res://SPRITES/Sin título-1.png" id="4_w6vtn"]
+[ext_resource type="PackedScene" uid="uid://coxibqsc6eju0" path="res://Stuff/CAMARA.tscn" id="5_35of7"]
+[ext_resource type="Material" uid="uid://dcidi61utntx" path="res://Stuff/Shaders/new_shader_material.tres" id="7_mtjfh"]
+[ext_resource type="Texture2D" uid="uid://bg0yxi6uqdtt" path="res://SPRITES/playbutton- 002.png" id="9_l6hys"]
+[ext_resource type="Texture2D" uid="uid://bf64alcw31puq" path="res://SPRITES/playbutton- 001.png" id="10_be650"]
+[ext_resource type="Texture2D" uid="uid://bkoueg2kh6f44" path="res://SPRITES/focashop-1.png" id="11_xtrle"]
+[ext_resource type="Texture2D" uid="uid://yy5xq6vnwonn" path="res://SPRITES/focashoppress-1.png" id="12_0efhw"]
+[ext_resource type="PackedScene" uid="uid://cb8wnn3764qkq" path="res://Escenas/SETTINGS.tscn" id="13_l6hys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bu0hf"]
+shader = ExtResource("3_f8r5x")
+shader_parameter/blur_type = 0
+shader_parameter/blur_amount = 2
+shader_parameter/blur_radius = 1.0
+shader_parameter/blur_direction = Vector2(1, 1)
+
+[node name="MENU" type="Node2D" unique_id=1294935131]
+script = ExtResource("1_ud10i")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1343619254]
+visible = false
+offset_left = -384.0
+offset_top = -168.0
+offset_right = 1656.0
+offset_bottom = 760.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1755912194]
+handle_input_locally = false
+size = Vector2i(2040, 928)
+render_target_update_mode = 0
+
+[node name="LANDSCAPE" parent="SubViewportContainer/SubViewport" unique_id=1643473602 instance=ExtResource("1_vygie")]
+
+[node name="ColorRect" parent="SubViewportContainer/SubViewport/LANDSCAPE/SKYCONTROL" parent_id_path=PackedInt32Array(1643473602, 1180752027) index="0" unique_id=542952388]
+offset_left = -528.0
+offset_top = -296.0
+offset_right = 2120.0
+offset_bottom = 869.0
+
+[node name="Montañas Trasera 1" parent="SubViewportContainer/SubViewport/LANDSCAPE" index="1" unique_id=1414817645]
+autoscroll = Vector2(0, 0)
+
+[node name="Mountaintrasparent" parent="SubViewportContainer/SubViewport/LANDSCAPE/Montañas Trasera 1" index="0" unique_id=1930495090]
+position = Vector2(104, 439.99997)
+
+[node name="Montañas Trasera 2" parent="SubViewportContainer/SubViewport/LANDSCAPE" index="2" unique_id=1743164402]
+autoscroll = Vector2(0, 0)
+
+[node name="La montaña" parent="SubViewportContainer/SubViewport/LANDSCAPE" index="3" unique_id=1288350431]
+autoscroll = Vector2(0, 0)
+
+[node name="Montañas de fondo" parent="SubViewportContainer/SubViewport/LANDSCAPE" index="4" unique_id=1794862810]
+autoscroll = Vector2(0, 0)
+
+[node name="Montaña frente" parent="SubViewportContainer/SubViewport/LANDSCAPE" index="5" unique_id=51003424]
+autoscroll = Vector2(0, 0)
+
+[node name="Blur" type="ColorRect" parent="." unique_id=86237883]
+visible = false
+material = SubResource("ShaderMaterial_bu0hf")
+offset_left = -344.0
+offset_top = -95.0
+offset_right = 1680.0
+offset_bottom = 800.0
+
+[node name="LANDSCAPE" parent="." unique_id=1134749997 instance=ExtResource("4_bu0hf")]
+visible = false
+position = Vector2(-40, 16)
+
+[node name="Camera2D" parent="." unique_id=2042724395 instance=ExtResource("5_35of7")]
+position = Vector2(568, 344)
+zoom = Vector2(0.8, 0.8)
+limit_enabled = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=751283657]
+
+[node name="MENUPRINCIPAL" type="Node2D" parent="CanvasLayer" unique_id=789394259]
+
+[node name="TitleGradient" type="Sprite2D" parent="CanvasLayer/MENUPRINCIPAL" unique_id=1509458068]
+position = Vector2(576, 118)
+scale = Vector2(19.199999, 3.0666668)
+texture = ExtResource("3_w6vtn")
+
+[node name="Titulo" type="Sprite2D" parent="CanvasLayer/MENUPRINCIPAL/TitleGradient" unique_id=978687510]
+texture_filter = 1
+material = ExtResource("7_mtjfh")
+position = Vector2(-1.6666679, 47.608692)
+scale = Vector2(0.104166664, 0.6521738)
+texture = ExtResource("4_w6vtn")
+
+[node name="Gradient" type="Sprite2D" parent="CanvasLayer/MENUPRINCIPAL" unique_id=2017754348]
+position = Vector2(576, 592)
+scale = Vector2(19.199999, 1.9666661)
+texture = ExtResource("3_w6vtn")
+
+[node name="Play" type="TouchScreenButton" parent="CanvasLayer/MENUPRINCIPAL" unique_id=522030723]
+position = Vector2(518, 544)
+scale = Vector2(1.5999999, 1.5999999)
+texture_normal = ExtResource("9_l6hys")
+texture_pressed = ExtResource("10_be650")
+
+[node name="Skins" type="TouchScreenButton" parent="CanvasLayer/MENUPRINCIPAL" unique_id=702376161]
+material = ExtResource("7_mtjfh")
+position = Vector2(256, 544)
+scale = Vector2(1.5999999, 1.5999999)
+texture_normal = ExtResource("11_xtrle")
+texture_pressed = ExtResource("12_0efhw")
+
+[node name="MENU DE OPCIONES" type="Node2D" parent="CanvasLayer" unique_id=278691517]
+
+[node name="Window" type="Window" parent="CanvasLayer/MENU DE OPCIONES" unique_id=547811686]
+oversampling_override = 1.0
+mode = 3
+initial_position = 1
+size = Vector2i(500, 400)
+popup_window = true
+
+[node name="Control" parent="CanvasLayer/MENU DE OPCIONES/Window" unique_id=1347933309 instance=ExtResource("13_l6hys")]
+
+[editable path="SubViewportContainer/SubViewport/LANDSCAPE"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://coxibqsc6eju0"]
+
+[ext_resource type="Script" uid="uid://dx3ourbm1p7e8" path="res://Scripts/CAMERA2D.gd" id="1_o328e"]
+
+[node name="Camera2D" type="Camera2D" unique_id=2042724395]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("1_o328e")
+
+[node name="Timer" type="Timer" parent="." unique_id=2001644023]

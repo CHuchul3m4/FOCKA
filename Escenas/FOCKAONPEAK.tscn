@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://2ooj6rgxgt5"]
+
+[ext_resource type="Texture2D" uid="uid://dtn2v1pvhnmg1" path="res://SPRITES/mountaintrasparent.png" id="2_hpkus"]
+[ext_resource type="Texture2D" uid="uid://ckljddsyonvyn" path="res://SPRITES/mountain.png" id="3_3nioj"]
+[ext_resource type="Texture2D" uid="uid://4girpc5xt70d" path="res://SPRITES/snow.png" id="5_5vlp3"]
+[ext_resource type="Texture2D" uid="uid://ckwd6aijixkjr" path="res://SPRITES/Focka-Sheet.png" id="5_r20ii"]
+[ext_resource type="Texture2D" uid="uid://cj8g8p2n5s20h" path="res://SPRITES/Clouds.png" id="6_cy11u"]
+
+[sub_resource type="Curve" id="Curve_1myu0"]
+_limits = [-360.0, 609.46, 0.0, 1.0]
+_data = [Vector2(0.022222228, -360), 0.0, 0.0, 0, 0, Vector2(1, -305.23053), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_635h8"]
+curve = SubResource("Curve_1myu0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ypj4e"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 1000.0
+emission_ring_inner_radius = 222.23
+emission_ring_cone_angle = 90.0
+angle_min = -189.79999
+angle_max = 193.80002
+angle_curve = SubResource("CurveTexture_635h8")
+gravity = Vector3(0, 5, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ea4n"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 569.71
+emission_ring_radius = 371.53
+emission_ring_inner_radius = 131.94
+emission_ring_cone_angle = 90.0
+angle_min = -14.9999895
+angle_max = 15.0000105
+gravity = Vector3(5, 0, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_over_velocity_max = 34.62
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru6on"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpkus"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nioj"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abl27"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vlp3"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy11u"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mux8y"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jadgx"]
+atlas = ExtResource("5_r20ii")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sspk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru6on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpkus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nioj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abl27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vlp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy11u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mux8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jadgx")
+}],
+"loop": true,
+"name": &"IDDLE",
+"speed": 5.0
+}]
+
+[node name="LANDSCAPE" type="Node2D" unique_id=1643473602]
+
+[node name="Snow" type="GPUParticles2D" parent="." unique_id=264759478]
+modulate = Color(1, 1, 1, 0.2509804)
+position = Vector2(592, -95)
+amount = 300
+sub_emitter = NodePath(".")
+texture = ExtResource("5_5vlp3")
+lifetime = 15.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_ypj4e")
+
+[node name="Nubes" type="GPUParticles2D" parent="." unique_id=251820223]
+modulate = Color(1, 1, 1, 0.047058824)
+position = Vector2(97, 179)
+amount = 20
+sub_emitter = NodePath(".")
+texture = ExtResource("6_cy11u")
+lifetime = 67.67
+preprocess = 3.0
+process_material = SubResource("ParticleProcessMaterial_3ea4n")
+
+[node name="Mountain" type="Sprite2D" parent="." unique_id=3967908]
+texture_filter = 1
+position = Vector2(630.5001, 610)
+scale = Vector2(9, 9)
+texture = ExtResource("3_3nioj")
+
+[node name="Montaña2" type="Sprite2D" parent="." unique_id=1594176707]
+texture_filter = 1
+position = Vector2(1164.5001, 587.5)
+scale = Vector2(5.150002, 4.65)
+texture = ExtResource("2_hpkus")
+
+[node name="Montaña1" type="Sprite2D" parent="." unique_id=1930495090]
+texture_filter = 1
+position = Vector2(73.50009, 612)
+scale = Vector2(5.150002, 3.6800003)
+texture = ExtResource("2_hpkus")
+
+[node name="FockaDummy" type="AnimatedSprite2D" parent="." unique_id=1451825671]
+texture_filter = 1
+position = Vector2(608, 256)
+sprite_frames = SubResource("SpriteFrames_7sspk")
+animation = &"IDDLE"
+frame_progress = 0.10719225

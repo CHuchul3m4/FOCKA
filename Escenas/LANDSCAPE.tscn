@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://d0i3kku4lijml"]
+
+[ext_resource type="Texture2D" uid="uid://ckljddsyonvyn" path="res://SPRITES/mountain.png" id="1_cot21"]
+[ext_resource type="Texture2D" uid="uid://dtn2v1pvhnmg1" path="res://SPRITES/mountaintrasparent.png" id="2_ppmc5"]
+[ext_resource type="Texture2D" uid="uid://b4jbq3y2le1e7" path="res://SPRITES/Wasteland_Mountains_2.png" id="3_ppmc5"]
+[ext_resource type="Texture2D" uid="uid://cj8g8p2n5s20h" path="res://SPRITES/Clouds.png" id="4_1qktw"]
+[ext_resource type="Texture2D" uid="uid://4girpc5xt70d" path="res://SPRITES/snow.png" id="4_3ea4n"]
+[ext_resource type="Script" uid="uid://3fq7w1vmn06y" path="res://Scripts/skycontrol.gd" id="6_1myu0"]
+
+[sub_resource type="Curve" id="Curve_1myu0"]
+_limits = [-360.0, 609.46, 0.0, 1.0]
+_data = [Vector2(0.022222228, -360), 0.0, 0.0, 0, 0, Vector2(1, -305.23053), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_635h8"]
+curve = SubResource("Curve_1myu0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ypj4e"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 1000.0
+emission_ring_inner_radius = 222.23
+emission_ring_cone_angle = 90.0
+angle_min = -189.79999
+angle_max = 193.80002
+angle_curve = SubResource("CurveTexture_635h8")
+gravity = Vector3(0, 5, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ea4n"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 569.71
+emission_ring_radius = 371.53
+emission_ring_inner_radius = 131.94
+emission_ring_cone_angle = 90.0
+angle_min = -14.9999895
+angle_max = 15.0000105
+gravity = Vector3(5, 0, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_over_velocity_max = 34.62
+
+[node name="LANDSCAPE" type="Node2D" unique_id=1643473602]
+
+[node name="SKYCONTROL" type="Node2D" parent="." unique_id=1180752027 node_paths=PackedStringArray("sky_rect", "canvas")]
+script = ExtResource("6_1myu0")
+sky_rect = NodePath("ColorRect")
+canvas = NodePath("CanvasModulate")
+
+[node name="ColorRect" type="ColorRect" parent="SKYCONTROL" unique_id=542952388]
+offset_left = -654.0
+offset_top = -278.0
+offset_right = 1994.0
+offset_bottom = 887.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="SKYCONTROL" unique_id=2037495934]
+
+[node name="Montañas Trasera 1" type="Parallax2D" parent="." unique_id=1414817645]
+scroll_scale = Vector2(0.1, 0.1)
+autoscroll = Vector2(10, 0)
+
+[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas Trasera 1" unique_id=1930495090]
+texture_filter = 1
+position = Vector2(69, 435.99997)
+scale = Vector2(5.150002, 3.6800003)
+texture = ExtResource("2_ppmc5")
+
+[node name="Montañas Trasera 2" type="Parallax2D" parent="." unique_id=1743164402]
+scroll_scale = Vector2(0.1, 0.1)
+autoscroll = Vector2(10, 0)
+
+[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas Trasera 2" unique_id=1594176707]
+texture_filter = 1
+position = Vector2(1160, 411.49997)
+scale = Vector2(5.150002, 4.65)
+texture = ExtResource("2_ppmc5")
+
+[node name="La montaña" type="Parallax2D" parent="." unique_id=1288350431]
+scroll_scale = Vector2(0.2, 0.2)
+autoscroll = Vector2(10, 0)
+
+[node name="Mountain" type="Sprite2D" parent="La montaña" unique_id=3967908]
+modulate = Color(1, 1, 1, 0.6039216)
+texture_filter = 1
+position = Vector2(626, 434)
+scale = Vector2(9, 9)
+texture = ExtResource("1_cot21")
+
+[node name="Montañas de fondo" type="Parallax2D" parent="." unique_id=1794862810]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(320, 0)
+autoscroll = Vector2(5, 0)
+repeat_times = 8
+
+[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas de fondo" unique_id=1258256236]
+texture_filter = 1
+position = Vector2(588, 637)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ppmc5")
+
+[node name="Montaña frente" type="Parallax2D" parent="." unique_id=51003424]
+scroll_scale = Vector2(2, 2)
+repeat_size = Vector2(1024, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 5
+
+[node name="WastelandMountains2" type="Sprite2D" parent="Montaña frente" unique_id=979097523]
+texture_filter = 2
+position = Vector2(338, 463)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ppmc5")
+
+[node name="Snow" type="GPUParticles2D" parent="." unique_id=264759478]
+modulate = Color(1, 1, 1, 0.2509804)
+position = Vector2(592, -95)
+amount = 300
+sub_emitter = NodePath(".")
+texture = ExtResource("4_3ea4n")
+lifetime = 15.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_ypj4e")
+
+[node name="Nubes" type="GPUParticles2D" parent="." unique_id=251820223]
+modulate = Color(1, 1, 1, 0.047058824)
+position = Vector2(97, 179)
+amount = 20
+sub_emitter = NodePath(".")
+texture = ExtResource("4_1qktw")
+lifetime = 67.67
+preprocess = 3.0
+process_material = SubResource("ParticleProcessMaterial_3ea4n")
