@@ -8,10 +8,6 @@
 
 config_version=5
 
-[accessibility]
-
-general/updates_per_second=100
-
 [application]
 
 config/name="FOCKAPOCKET"
@@ -19,13 +15,27 @@ config/description="FOCKATIME! , una foca que sube una montaña, es una especie 
 config/version="1.0"
 run/main_scene="uid://tu4jvqeptt7c"
 config/features=PackedStringArray("4.6", "Mobile")
+run/max_fps=120
 boot_splash/use_filter=false
 boot_splash/image="uid://gdatoxt5ip4m"
-config/icon="uid://bkoueg2kh6f44"
+config/icon="uid://clmcnslug34v"
+
+[audio]
+
+buses/default_bus_layout="uid://cqmyywb8hyihs"
 
 [autoload]
 
 Global="*uid://by2eay7d7ry8t"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[global_group]
+
+ICE="IceTiles activan el efecto de hielo "
+Player=""
 
 [input]
 

@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://d0i3kku4lijml"]
+[gd_scene format=3 uid="uid://cyewqci34krv0"]
 
-[ext_resource type="Texture2D" uid="uid://bg7rmq8w3j2m4" path="res://SPRITES/mountain.png" id="1_cot21"]
-[ext_resource type="Texture2D" uid="uid://batd6sqvfaeel" path="res://SPRITES/mountaintrasparent.png" id="2_ppmc5"]
-[ext_resource type="Texture2D" uid="uid://bpmjxnownebes" path="res://SPRITES/Wasteland_Mountains_2.png" id="3_ppmc5"]
-[ext_resource type="Texture2D" uid="uid://dncqsbyj1lvh5" path="res://SPRITES/Clouds.png" id="4_1qktw"]
-[ext_resource type="Texture2D" uid="uid://binu36emobco6" path="res://SPRITES/snow.png" id="4_3ea4n"]
-[ext_resource type="Script" uid="uid://3fq7w1vmn06y" path="res://Scripts/skycontrol.gd" id="6_1myu0"]
+[ext_resource type="Script" uid="uid://3fq7w1vmn06y" path="res://Scripts/skycontrol.gd" id="1_743dn"]
+[ext_resource type="Texture2D" uid="uid://batd6sqvfaeel" path="res://SPRITES/mountaintrasparent.png" id="2_vqaqi"]
+[ext_resource type="Texture2D" uid="uid://bg7rmq8w3j2m4" path="res://SPRITES/mountain.png" id="3_ld48x"]
+[ext_resource type="Texture2D" uid="uid://bpmjxnownebes" path="res://SPRITES/Wasteland_Mountains_2.png" id="4_j42v2"]
+[ext_resource type="Texture2D" uid="uid://binu36emobco6" path="res://SPRITES/snow.png" id="5_3dwon"]
+[ext_resource type="Texture2D" uid="uid://dncqsbyj1lvh5" path="res://SPRITES/Clouds.png" id="6_wbxi1"]
 
 [sub_resource type="Curve" id="Curve_1myu0"]
 _limits = [-360.0, 609.46, 0.0, 1.0]
@@ -60,7 +60,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="LANDSCAPE" type="Node2D" unique_id=1643473602]
 
 [node name="SKYCONTROL" type="Node2D" parent="." unique_id=1180752027 node_paths=PackedStringArray("sky_rect", "canvas")]
-script = ExtResource("6_1myu0")
+script = ExtResource("1_743dn")
 sky_rect = NodePath("ColorRect")
 canvas = NodePath("CanvasModulate")
 
@@ -72,67 +72,43 @@ offset_bottom = 887.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="SKYCONTROL" unique_id=2037495934]
 
-[node name="Montañas Trasera 1" type="Parallax2D" parent="." unique_id=1414817645]
-scroll_scale = Vector2(0.1, 0.1)
-autoscroll = Vector2(10, 0)
-
-[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas Trasera 1" unique_id=1930495090]
+[node name="Mountaintrasparent" type="Sprite2D" parent="SKYCONTROL" unique_id=1930495090]
 texture_filter = 1
 position = Vector2(69, 435.99997)
 scale = Vector2(5.150002, 3.6800003)
-texture = ExtResource("2_ppmc5")
+texture = ExtResource("2_vqaqi")
 
-[node name="Montañas Trasera 2" type="Parallax2D" parent="." unique_id=1743164402]
-scroll_scale = Vector2(0.1, 0.1)
-autoscroll = Vector2(10, 0)
-
-[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas Trasera 2" unique_id=1594176707]
+[node name="Mountaintrasparent" type="Sprite2D" parent="." unique_id=1594176707]
 texture_filter = 1
-position = Vector2(1160, 411.49997)
+position = Vector2(1040.0001, 464.00003)
 scale = Vector2(5.150002, 4.65)
-texture = ExtResource("2_ppmc5")
+texture = ExtResource("2_vqaqi")
 
-[node name="La montaña" type="Parallax2D" parent="." unique_id=1288350431]
-scroll_scale = Vector2(0.2, 0.2)
-autoscroll = Vector2(10, 0)
-
-[node name="Mountain" type="Sprite2D" parent="La montaña" unique_id=3967908]
+[node name="Mountain" type="Sprite2D" parent="." unique_id=3967908]
 modulate = Color(1, 1, 1, 0.6039216)
 texture_filter = 1
 position = Vector2(626, 434)
 scale = Vector2(9, 9)
-texture = ExtResource("1_cot21")
+texture = ExtResource("3_ld48x")
 
-[node name="Montañas de fondo" type="Parallax2D" parent="." unique_id=1794862810]
-scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(320, 0)
-autoscroll = Vector2(5, 0)
-repeat_times = 8
-
-[node name="Mountaintrasparent" type="Sprite2D" parent="Montañas de fondo" unique_id=1258256236]
+[node name="Mountaintrasparent2" type="Sprite2D" parent="." unique_id=1258256236]
 texture_filter = 1
-position = Vector2(588, 637)
+position = Vector2(488, 536)
 scale = Vector2(5, 5)
-texture = ExtResource("2_ppmc5")
+texture = ExtResource("2_vqaqi")
 
-[node name="Montaña frente" type="Parallax2D" parent="." unique_id=51003424]
-scroll_scale = Vector2(2, 2)
-repeat_size = Vector2(1024, 0)
-autoscroll = Vector2(10, 0)
-repeat_times = 5
-
-[node name="WastelandMountains2" type="Sprite2D" parent="Montaña frente" unique_id=979097523]
+[node name="WastelandMountains2" type="Sprite2D" parent="." unique_id=979097523]
 texture_filter = 2
 position = Vector2(338, 463)
 scale = Vector2(2, 2)
-texture = ExtResource("3_ppmc5")
+texture = ExtResource("4_j42v2")
 
 [node name="Snow" type="GPUParticles2D" parent="." unique_id=264759478]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(592, -95)
-amount = 300
+amount = 80
 sub_emitter = NodePath(".")
-texture = ExtResource("4_3ea4n")
+texture = ExtResource("5_3dwon")
 lifetime = 15.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_ypj4e")
@@ -140,9 +116,9 @@ process_material = SubResource("ParticleProcessMaterial_ypj4e")
 [node name="Nubes" type="GPUParticles2D" parent="." unique_id=251820223]
 modulate = Color(1, 1, 1, 0.047058824)
 position = Vector2(97, 179)
-amount = 20
+amount = 10
 sub_emitter = NodePath(".")
-texture = ExtResource("4_1qktw")
+texture = ExtResource("6_wbxi1")
 lifetime = 67.67
 preprocess = 3.0
 process_material = SubResource("ParticleProcessMaterial_3ea4n")

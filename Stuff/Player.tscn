@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cfbpp426kot5e"]
 
 [ext_resource type="Script" uid="uid://tvsp2c2cmwb0" path="res://Scripts/Player.gd" id="1_1p7lu"]
-[ext_resource type="Texture2D" uid="uid://ckwd6aijixkjr" path="res://SPRITES/Focka-Sheet.png" id="2_drovp"]
-[ext_resource type="Texture2D" uid="uid://cghjbu1qxvxk8" path="res://SPRITES/Focka-jupede-Sheet.png" id="3_dnwev"]
-[ext_resource type="Texture2D" uid="uid://cq2o6hupaj6do" path="res://SPRITES/Focka-movet.png" id="4_rdd20"]
+[ext_resource type="Texture2D" uid="uid://g08amflcoqr6" path="res://SPRITES/Focka-Sheet.png" id="2_drovp"]
+[ext_resource type="Texture2D" uid="uid://et7o28cb23m4" path="res://SPRITES/Focka-jupede-Sheet.png" id="3_dnwev"]
+[ext_resource type="Texture2D" uid="uid://bvxk6m01jyjpe" path="res://SPRITES/Focka-movet.png" id="4_rdd20"]
 [ext_resource type="AudioStream" uid="uid://bc1wwb03dfqwl" path="res://Sonidos/270323__littlerobotsoundfactory__jump_03.wav" id="5_e5i1d"]
 [ext_resource type="PackedScene" uid="uid://coxibqsc6eju0" path="res://Stuff/CAMARA.tscn" id="6_13m24"]
-[ext_resource type="Texture2D" uid="uid://cfokhwgd40fdd" path="res://SPRITES/!.png" id="7_yctgm"]
+[ext_resource type="Texture2D" uid="uid://cq6xq0tyafpw7" path="res://SPRITES/!.png" id="7_yctgm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbnwp"]
 atlas = ExtResource("2_drovp")
@@ -250,28 +250,37 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jj215"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1p7lu"]
 radius = 6.0
+height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuhna"]
 size = Vector2(30, 54)
 
-[node name="Player" type="CharacterBody2D" unique_id=380788492 node_paths=PackedStringArray("sprite", "sonido_jump")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drovp"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D" unique_id=380788492 node_paths=PackedStringArray("sprite", "sonido_jump") groups=["Player"]]
+editor_description = "Este script controla a un personaje jugador en 2D (la foca) en Godot. Su mecánica principal es un salto cargado: en lugar de saltar inmediatamente, el jugador mantiene presionado el botón para acumular fuerza (aplastándose y poniéndose rojo) y sale disparado al soltarlo.
+
+Además, el código está diseñado como una plantilla con modificadores, lo que te permite activar o desactivar \"modos especiales\" (como gravedad lunar, modo gigante, modo borracho, etc.) desde el inspector de Godot para cambiar completamente cómo se comporta el personaje."
+z_index = 1
 collision_mask = 7
 script = ExtResource("1_1p7lu")
 sprite = NodePath("Sprites")
 sonido_jump = NodePath("AudioStreamPlayer2D")
-modo_gigante = true
 
 [node name="Sprites" type="AnimatedSprite2D" parent="." unique_id=1462811501]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_re64h")
 animation = &"MOVE"
+frame = 4
+frame_progress = 0.049545288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442556931]
-position = Vector2(-1, 2)
+position = Vector2(0, 1)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_jj215")
+shape = SubResource("CapsuleShape2D_1p7lu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=809199701]
 stream = ExtResource("5_e5i1d")
@@ -286,8 +295,9 @@ position_smoothing_speed = 3.0
 [node name="CollisionDetectors" type="Area2D" parent="." unique_id=813453783]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetectors" unique_id=1288648060]
-position = Vector2(0, -21)
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_fuhna")
+debug_color = Color(1.1378282, 0.35905212, 8.489536e-05, 0.082)
 
 [node name="!" type="CPUParticles2D" parent="." unique_id=834835246]
 visible = false
@@ -304,4 +314,20 @@ angle_max = 25.3
 scale_amount_min = 0.1
 scale_amount_max = 0.8
 
-[connection signal="body_entered" from="CollisionDetectors" to="." method="_on_Colisiondetector_body_entered"]
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=908170964]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D" unique_id=475670971]
+position = Vector2(-6, -4)
+rotation = -1.5184364
+
+[node name="ICEDETECTORS" type="Area2D" parent="." unique_id=1584997404]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ICEDETECTORS" unique_id=1340457162]
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_drovp")
+debug_color = Color(0.3730178, 0.5265105, 0.84667695, 0.41960785)
+
+[connection signal="body_entered" from="ICEDETECTORS" to="." method="_on_icedetectors_body_entered"]
+[connection signal="body_exited" from="ICEDETECTORS" to="." method="_on_icedetectors_body_exited"]

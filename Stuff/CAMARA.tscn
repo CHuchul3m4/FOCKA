@@ -8,3 +8,5 @@ rotation_smoothing_enabled = true
 script = ExtResource("1_o328e")
 
 [node name="Timer" type="Timer" parent="." unique_id=2001644023]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
