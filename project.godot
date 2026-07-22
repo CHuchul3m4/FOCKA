@@ -15,7 +15,6 @@ config/description="FOCKATIME! , una foca que sube una montaña, es una especie 
 config/version="1.0"
 run/main_scene="uid://tu4jvqeptt7c"
 config/features=PackedStringArray("4.6", "Mobile")
-run/max_fps=120
 boot_splash/use_filter=false
 boot_splash/image="uid://gdatoxt5ip4m"
 config/icon="uid://clmcnslug34v"
@@ -31,6 +30,7 @@ Global="*uid://by2eay7d7ry8t"
 [display]
 
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [global_group]
 

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cyewqci34krv0"]
 
 [ext_resource type="Script" uid="uid://3fq7w1vmn06y" path="res://Scripts/skycontrol.gd" id="1_743dn"]
-[ext_resource type="Texture2D" uid="uid://batd6sqvfaeel" path="res://SPRITES/mountaintrasparent.png" id="2_vqaqi"]
-[ext_resource type="Texture2D" uid="uid://bg7rmq8w3j2m4" path="res://SPRITES/mountain.png" id="3_ld48x"]
-[ext_resource type="Texture2D" uid="uid://bpmjxnownebes" path="res://SPRITES/Wasteland_Mountains_2.png" id="4_j42v2"]
-[ext_resource type="Texture2D" uid="uid://binu36emobco6" path="res://SPRITES/snow.png" id="5_3dwon"]
-[ext_resource type="Texture2D" uid="uid://dncqsbyj1lvh5" path="res://SPRITES/Clouds.png" id="6_wbxi1"]
+[ext_resource type="Texture2D" uid="uid://dtn2v1pvhnmg1" path="res://SPRITES/mountaintrasparent.png" id="2_vqaqi"]
+[ext_resource type="Texture2D" uid="uid://ckljddsyonvyn" path="res://SPRITES/mountain.png" id="3_ld48x"]
+[ext_resource type="Texture2D" uid="uid://b4jbq3y2le1e7" path="res://SPRITES/Wasteland_Mountains_2.png" id="4_j42v2"]
+[ext_resource type="Texture2D" uid="uid://4girpc5xt70d" path="res://SPRITES/snow.png" id="5_3dwon"]
+[ext_resource type="Texture2D" uid="uid://cj8g8p2n5s20h" path="res://SPRITES/Clouds.png" id="6_wbxi1"]
 
 [sub_resource type="Curve" id="Curve_1myu0"]
 _limits = [-360.0, 609.46, 0.0, 1.0]
@@ -74,7 +74,7 @@ offset_bottom = 887.0
 
 [node name="Mountaintrasparent" type="Sprite2D" parent="SKYCONTROL" unique_id=1930495090]
 texture_filter = 1
-position = Vector2(69, 435.99997)
+position = Vector2(63, 435.99997)
 scale = Vector2(5.150002, 3.6800003)
 texture = ExtResource("2_vqaqi")
 
@@ -98,7 +98,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_vqaqi")
 
 [node name="WastelandMountains2" type="Sprite2D" parent="." unique_id=979097523]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(338, 463)
 scale = Vector2(2, 2)
 texture = ExtResource("4_j42v2")
@@ -127,3 +127,4 @@ process_material = SubResource("ParticleProcessMaterial_3ea4n")
 position = Vector2(592, -9.536743e-07)
 scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_635h8")
+metadata/_edit_lock_ = true

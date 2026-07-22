@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://tu4jvqeptt7c"]
 
-[ext_resource type="Texture2D" uid="uid://clmcnslug34v" path="res://SPRITES/cmsng.png" id="1_lxhbt"]
+[ext_resource type="Texture2D" uid="uid://gdatoxt5ip4m" path="res://SPRITES/cmsng.png" id="1_lxhbt"]
 [ext_resource type="Script" uid="uid://dmmam15mflldb" path="res://Scripts/Splash.gd" id="1_mgodh"]
 [ext_resource type="Shader" uid="uid://dc3rruverbrqa" path="res://Stuff/Shaders/ShaderBlur.gdshader" id="1_tjd1l"]
 [ext_resource type="PackedScene" uid="uid://d0i3kku4lijml" path="res://Escenas/LANDSCAPE.tscn" id="2_ecjk3"]
-[ext_resource type="Texture2D" uid="uid://b5jeay4ht3avg" path="res://SPRITES/Black.png" id="4_y31m8"]
+[ext_resource type="Texture2D" uid="uid://b15up68qmkloj" path="res://SPRITES/Black.png" id="4_y31m8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mgodh"]
 shader = ExtResource("1_tjd1l")

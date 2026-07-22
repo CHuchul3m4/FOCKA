@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d0i3kku4lijml"]
 
-[ext_resource type="Texture2D" uid="uid://bg7rmq8w3j2m4" path="res://SPRITES/mountain.png" id="1_cot21"]
-[ext_resource type="Texture2D" uid="uid://batd6sqvfaeel" path="res://SPRITES/mountaintrasparent.png" id="2_ppmc5"]
-[ext_resource type="Texture2D" uid="uid://bpmjxnownebes" path="res://SPRITES/Wasteland_Mountains_2.png" id="3_ppmc5"]
-[ext_resource type="Texture2D" uid="uid://dncqsbyj1lvh5" path="res://SPRITES/Clouds.png" id="4_1qktw"]
-[ext_resource type="Texture2D" uid="uid://binu36emobco6" path="res://SPRITES/snow.png" id="4_3ea4n"]
+[ext_resource type="Texture2D" uid="uid://ckljddsyonvyn" path="res://SPRITES/mountain.png" id="1_cot21"]
+[ext_resource type="Texture2D" uid="uid://dtn2v1pvhnmg1" path="res://SPRITES/mountaintrasparent.png" id="2_ppmc5"]
+[ext_resource type="Texture2D" uid="uid://b4jbq3y2le1e7" path="res://SPRITES/Wasteland_Mountains_2.png" id="3_ppmc5"]
+[ext_resource type="Texture2D" uid="uid://cj8g8p2n5s20h" path="res://SPRITES/Clouds.png" id="4_1qktw"]
+[ext_resource type="Texture2D" uid="uid://4girpc5xt70d" path="res://SPRITES/snow.png" id="4_3ea4n"]
 [ext_resource type="Script" uid="uid://3fq7w1vmn06y" path="res://Scripts/skycontrol.gd" id="6_1myu0"]
 
 [sub_resource type="Curve" id="Curve_1myu0"]
