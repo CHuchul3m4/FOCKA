@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cyewqci34krv0" path="res://Escenas/LANDSCAPE_OPTIMIZED.tscn" id="1_nxtuj"]
 [ext_resource type="Shader" uid="uid://dc3rruverbrqa" path="res://Stuff/Shaders/ShaderBlur.gdshader" id="2_73y80"]
 [ext_resource type="Script" uid="uid://co16of52fokx8" path="res://Scripts/generadores.gd" id="2_ftb1m"]
-[ext_resource type="Texture2D" uid="uid://djfa5ogts4gnw" path="res://SPRITES/Wasteland-Files.png" id="2_q1gv6"]
+[ext_resource type="Texture2D" uid="uid://besrsxocr3f51" path="res://SPRITES/Wasteland-Files.png" id="2_q1gv6"]
 [ext_resource type="Script" uid="uid://co0dgvmn84hxe" path="res://Escenas/label.gd" id="6_nxtuj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxtuj"]
@@ -135,7 +135,9 @@ texture = ExtResource("2_q1gv6")
 14:8/0/terrains_peering_bit/top_left_corner = 0
 14:8/0/terrains_peering_bit/top_side = 0
 16:8/0 = 0
+16:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:8/0 = 0
+18:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 20:8/0 = 0
 21:8/0 = 0
 22:8/0 = 0
@@ -246,6 +248,7 @@ offset_left = -1048.0
 offset_top = -1256.0
 offset_right = 2136.0
 offset_bottom = 912.0
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=380788492 instance=ExtResource("1_fowf8")]
 position = Vector2(336, 128)
